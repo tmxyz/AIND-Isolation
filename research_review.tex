@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\usepackage{pmgraph}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper, top=30mm, bottom=20mm, left=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds}
+
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\bibliography{dovydas}
+
+\title{\vspace{-2.0cm}\textbf{Summary of research paper \\ ''Mastering the game of Go with deep neural networks and tree search''}}
+\author{Dovydas Čeilutka\\\\}
+\date{\today}
+\begin{document}
+\maketitle
+
+In one of the seminal artificial intelligence papers \autocite{Silver_Nature2016} introduces AlphaGo - an intelligent agent designed to play Go using a novel approach.
+
+\section{Summary of the techniques introduced}
+
+The paper \autocite{Silver_Nature2016} introduces a novel method of training the intelligent agent using a three step process: 
+
+\begin{enumerate}
+  \item supervised learning of policy networks
+  \item reinforcement learning of policy networks
+  \item reinforcement learning of value networks
+\end{enumerate}
+
+\subsection{Supervised learning of policy networks}
+
+The supervised learning of policy networks consists of training a 13-layer neural network consisting of alternating convolutional layers and rectifier nonlinearities with a softmax layer at the end. The neural network is trained using 30 million positions from the KGS Go Server.
+
+\subsection{Reinforcement learning of policy networks}
+
+In the next stage the policy network is improved using policy gradient reinforcement learning. The reinforcement learning policy network has identical structure to the supervised learning policy network. The weights are also initialized using the values from the previous step. Then games between random policy from previous iteration and current policy are played to prevent overfitting to the current policy and weights are updated.
+
+\subsection{Reinforcement learning of value networks}
+
+In the final stage the value function is estimated for position evaluation. Optimal value function under perfect play is not obtainable, therefore the value function is estimated for the strongest policy using reinforcement learning.
+
+\section{Summary of the results}
+
+In order to evaluate the results of the AlphaGo agent several tournaments were ran against other Go programs and also agains Fan Hui - professional Go player and winner of multiple European Go championships. AlphaGo's performance was suprising as it was believed that human-level artificial intelligence in the game of Go was decades away. This result inspires hope that artificial intelligence will reach human-level performance in other domains.
+
+\subsection{Results vs. other Go programs}
+
+AlphaGo played these Go programs:
+
+\begin{enumerate}
+  \item Crazy Stone
+  \item Zen
+  \item Pachi
+  \item Fuego
+  \item GnuGo
+\end{enumerate}
+
+All contenders were allowed 5s of computation time per move. The new techniques allowed single-machine AlphaGo to win 494 out of 495 games. Distributed AlphaGo proved to be even stonger and won all the games agains other programs and 77\% of the games agains single-machine AlphaGo.
+
+\subsection{Results vs. Fan Hui}
+
+AlphaGo played a formal five-game match, which AlphaGo won 5-0. It is worth noting that during the match AlphaGo evaluated thousands of times fewer positions that Deep Blue did in tis chess match agains Kasparov - a feat which was achieved by selecting the positions more intelligently.
+
+\printbibliography 
+
+\end{document}

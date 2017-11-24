@@ -1,0 +1,160 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nyt/global/}
+    \entry{Silver_Nature2016}{article}{}
+      \name{author}{20}{}{%
+        {{uniquename=0,hash=89dbd30410c2085cd059f32c57d4593e}{%
+           family={Silver},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{uniquename=0,hash=ba4b200ce1412a2570cb113366cc9559}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Aja},
+           giveni={A\bibinitperiod}}}%
+        {{uniquename=0,hash=f67baf2c4471c9f5555a6c8e9c15bc95}{%
+           family={Maddison},
+           familyi={M\bibinitperiod},
+           given={Chris\bibnamedelima J.},
+           giveni={C\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{uniquename=0,hash=4131bd14e5ca890278ecd351e356dc34}{%
+           family={Guez},
+           familyi={G\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod}}}%
+        {{uniquename=0,hash=50d24de916599d306c5cb1a77156e4b9}{%
+           family={Sifre},
+           familyi={S\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{uniquename=0,hash=7beea19391c5f74a416f59bb9e68aeb7}{%
+           family={Driessche},
+           familyi={D\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           prefix={van\bibnamedelima den},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{uniquename=0,hash=8fad8df927bc0014c0bd6a9feb7aa71d}{%
+           family={Schrittwieser},
+           familyi={S\bibinitperiod},
+           given={Julian},
+           giveni={J\bibinitperiod}}}%
+        {{uniquename=0,hash=af540e84ef1ecdaa70b1f7c90f59fd7d}{%
+           family={Antonoglou},
+           familyi={A\bibinitperiod},
+           given={Ioannis},
+           giveni={I\bibinitperiod}}}%
+        {{uniquename=0,hash=1f065703a4f7a60c69ecb59f499d3db3}{%
+           family={Panneershelvam},
+           familyi={P\bibinitperiod},
+           given={Veda},
+           giveni={V\bibinitperiod}}}%
+        {{uniquename=0,hash=3075d0e02c0833f6e5fe1addb880898f}{%
+           family={Lanctot},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod}}}%
+        {{uniquename=0,hash=a133b469b21b870786119a47b1b691eb}{%
+           family={Dieleman},
+           familyi={D\bibinitperiod},
+           given={Sander},
+           giveni={S\bibinitperiod}}}%
+        {{uniquename=0,hash=c19e654fe7f97a2862b0f06588d04c42}{%
+           family={Grewe},
+           familyi={G\bibinitperiod},
+           given={Dominik},
+           giveni={D\bibinitperiod}}}%
+        {{uniquename=0,hash=5560aef5a586c04b85130c3be44a3b6a}{%
+           family={Nham},
+           familyi={N\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{uniquename=0,hash=d2d0778c1cdd451c75b874b58eec7564}{%
+           family={Kalchbrenner},
+           familyi={K\bibinitperiod},
+           given={Nal},
+           giveni={N\bibinitperiod}}}%
+        {{uniquename=0,hash=8d569d1d5b8b5a7836017a98b430f959}{%
+           family={Sutskever},
+           familyi={S\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{uniquename=0,hash=3a6fdf4df9a25f1d2d506ad9e86e1f6c}{%
+           family={Lillicrap},
+           familyi={L\bibinitperiod},
+           given={Timothy},
+           giveni={T\bibinitperiod}}}%
+        {{uniquename=0,hash=958e13979b3920f7fb4793ed8dddcb33}{%
+           family={Leach},
+           familyi={L\bibinitperiod},
+           given={Madeleine},
+           giveni={M\bibinitperiod}}}%
+        {{uniquename=0,hash=481308b301166b521c74fde6566e97e6}{%
+           family={Kavukcuoglu},
+           familyi={K\bibinitperiod},
+           given={Koray},
+           giveni={K\bibinitperiod}}}%
+        {{uniquename=0,hash=368b9b2de627b852658c433b062d4e1e}{%
+           family={Graepel},
+           familyi={G\bibinitperiod},
+           given={Thore},
+           giveni={T\bibinitperiod}}}%
+        {{uniquename=0,hash=b160026950ebb1e2286dfb40c15482f5}{%
+           family={Hassabis},
+           familyi={H\bibinitperiod},
+           given={Demis},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Research}%
+      }
+      \strng{namehash}{4ccacac34637df06f749428b6ec5052e}
+      \strng{fullhash}{603a9ce20c63bae303b0fcd821295051}
+      \strng{authornamehash}{4ccacac34637df06f749428b6ec5052e}
+      \strng{authorfullhash}{603a9ce20c63bae303b0fcd821295051}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The game of Go has long been viewed as the most challenging of classic games for artificial intelligence owing to its enormous search space and the difficulty of evaluating board positions and moves. Here we introduce a new approach to computer Go that uses 'value networks' to evaluate board positions and 'policy networks' to select moves. These deep neural networks are trained by a novel combination of supervised learning from human expert games, and reinforcement learning from games of self-play. Without any lookahead search, the neural networks play Go at the level of state-of-the-art Monte Carlo tree search programs that simulate thousands of random games of self-play. We also introduce a new search algorithm that combines Monte Carlo simulation with value and policy networks. Using this search algorithm, our program {AlphaGo} achieved a 99.8\% winning rate against other Go programs, and defeated the human European Go champion by 5 games to 0. This is the first time that a computer program has defeated a human professional player in the full-sized game of Go, a feat previously thought to be at least a decade away.}
+      \field{issn}{0028-0836}
+      \field{journaltitle}{Nature}
+      \field{month}{1}
+      \field{number}{7587}
+      \field{title}{Mastering the game of Go with deep neural networks and tree search}
+      \field{volume}{529}
+      \field{year}{2016}
+      \field{pages}{484\bibrangedash 489}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1038/nature16961
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1038/nature16961
+      \endverb
+      \keyw{dl,game,rl}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
