@@ -41,7 +41,7 @@ def custom_score(game, player):
         return math.inf
 
     # Center bias
-
+    
     def center_value(x):
         vh = 1 / 1 + (abs(game.height / 2 - x[0] - 0.5))
         vw = 1 / 1 + (abs(game.width / 2 - x[1] - 0.5))
@@ -256,6 +256,7 @@ class MinimaxPlayer(IsolationPlayer):
 
             return not bool(game.get_legal_moves()) or depth <= 0
 
+        # max_value helper function
         def max_value(game, depth):
             if terminal_test(game, depth):
                 return self.score(game, self)
@@ -264,6 +265,7 @@ class MinimaxPlayer(IsolationPlayer):
                 v = max(v, min_value(game.forecast_move(m), depth - 1))
             return v
 
+        # min_value helper function
         def min_value(game, depth):
             if terminal_test(game, depth):
                 return self.score(game, self)
@@ -387,18 +389,23 @@ class AlphaBetaPlayer(IsolationPlayer):
                 testing.
         """
 
+        # Raise SearchTimeout if the time is up
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
 
+        # terminal_test helper function
         def terminal_test(game, depth):
             if self.time_left() < self.TIMER_THRESHOLD:
                 raise SearchTimeout()
 
             return not bool(game.get_legal_moves()) or depth <= 0
 
+        # max_value helper function
         def max_value(game, depth, alpha, beta):
+            # terminal test
             if terminal_test(game, depth):
                 return self.score(game, self)
+            # initial value set to negative infinity
             v = -math.inf
             for m in game.get_legal_moves():
                 v = max(v, min_value(game.forecast_move(m), depth - 1, alpha, beta))
@@ -407,9 +414,12 @@ class AlphaBetaPlayer(IsolationPlayer):
                 alpha = max(alpha, v)
             return v
 
+        # min_value helper function
         def min_value(game, depth, alpha, beta):
+            # terminal test
             if terminal_test(game, depth):
                 return self.score(game, self)
+            # initial value set to infinity
             v = math.inf
             for m in game.get_legal_moves():
                 v = min(v, max_value(game.forecast_move(m), depth - 1, alpha, beta))
@@ -418,12 +428,16 @@ class AlphaBetaPlayer(IsolationPlayer):
                 beta = min(beta, v)
             return v
 
+        # return early if there are no legal moves
         if not bool(game.get_legal_moves()):
             return (-1, -1)
         best_move = game.get_legal_moves()[0]
 
+        # iterate through all legal moves
         for m in game.get_legal_moves():
+            # assign v to the 
             v = min_value(game.forecast_move(m), depth - 1, alpha, beta)
+            # if v is bigger than alpha update alpha and best_move
             if v > alpha:
                 alpha = v
                 best_move = m
