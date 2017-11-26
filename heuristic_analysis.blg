@@ -1,0 +1,9 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'heuristic_analysis.blg'
+[56] biber-darwin:303> INFO - === Sat Nov 25, 2017, 10:54:20
+[86] Biber.pm:359> INFO - Reading 'heuristic_analysis.bcf'
+[180] Biber.pm:835> INFO - Found 0 citekeys in bib section 0
+[187] Utils.pm:164> WARN - The file 'heuristic_analysis.bcf' does not contain any citations!
+[194] bbl.pm:608> INFO - Writing 'heuristic_analysis.bbl' with encoding 'UTF-8'
+[194] bbl.pm:712> INFO - Output to heuristic_analysis.bbl
+[194] Biber.pm:109> INFO - WARNINGS: 1

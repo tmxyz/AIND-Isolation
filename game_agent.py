@@ -2,7 +2,6 @@
 test your agent's strength against a set of known agents using tournament.py
 and include the results in your report.
 """
-import random
 import math
 
 
@@ -41,10 +40,17 @@ def custom_score(game, player):
     if game.is_winner(player):
         return math.inf
 
-    own_moves = len(game.get_legal_moves(player))
-    opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    # Best defence is attack
-    return float(own_moves - 2 * opp_moves)
+    # Center bias
+
+    def center_value(x):
+        vh = 1 / 1 + (abs(game.height / 2 - x[0] - 0.5))
+        vw = 1 / 1 + (abs(game.width / 2 - x[1] - 0.5))
+        return vh + vw
+
+    own_moves = sum(map(center_value, game.get_legal_moves(player)))
+    opp_moves = sum(
+        map(center_value, game.get_legal_moves(game.get_opponent(player))))
+    return float(own_moves - opp_moves)
 
 
 def custom_score_2(game, player):
@@ -75,10 +81,17 @@ def custom_score_2(game, player):
     if game.is_winner(player):
         return math.inf
 
-    own_moves = len(game.get_legal_moves(player))
-    opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    # Long game
-    return float(2 * own_moves - opp_moves)
+    # Edges bias
+
+    own_moves = len(
+        [x for x in game.get_legal_moves(player)
+            if x[0] != 0 and x[0] != game.height - 1 and x[1] != 0 and x[1] != game.width - 1]
+    )
+    opp_moves = len(
+        [x for x in game.get_legal_moves(game.get_opponent(player))
+            if x[0] != 0 and x[0] != game.height - 1 and x[1] != 0 and x[1] != game.width - 1]
+    )
+    return float(own_moves - opp_moves)
 
 
 def custom_score_3(game, player):
@@ -111,7 +124,7 @@ def custom_score_3(game, player):
 
     own_moves = len(game.get_legal_moves(player))
     opp_moves = len(game.get_legal_moves(game.get_opponent(player)))
-    return float(own_moves - 10 * opp_moves)
+    return float(own_moves - 2 * opp_moves)
 
 
 class IsolationPlayer:
@@ -236,7 +249,7 @@ class MinimaxPlayer(IsolationPlayer):
 
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
-        
+
         def terminal_test(game, depth):
             if self.time_left() < self.TIMER_THRESHOLD:
                 raise SearchTimeout()
@@ -376,7 +389,7 @@ class AlphaBetaPlayer(IsolationPlayer):
 
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
-        
+
         def terminal_test(game, depth):
             if self.time_left() < self.TIMER_THRESHOLD:
                 raise SearchTimeout()

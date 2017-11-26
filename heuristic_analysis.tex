@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage{pmgraph}
+\usepackage[normalem]{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper, top=30mm, bottom=20mm, left=20mm]{geometry}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{shapes,backgrounds}
+
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\bibliography{dovydas}
+
+\title{\vspace{-2.0cm}\textbf{Heuristic Analysis}}
+\author{Dovydas Čeilutka\\\\}
+\date{\today}
+\begin{document}
+\maketitle
+
+Three custom heuristic functions were created to evaluate the position value of the move in Isolation game. The performance of these functions were determined using three rounds of simulations using \texttt{tournament.py} script.
+
+\section{Custom heuristic functions}
+
+In the project three custom heuristic functions were designed and implemented:
+
+\begin{enumerate}
+  \item center bias heuristic function
+  \item edge bias heuristic function
+  \item agressive attack heuristic function 
+\end{enumerate}
+
+\subsection{Center bias heuristic function}
+
+\paragraph{Resoning}
+
+The idea behind this heuristic function is that the closer the move is to the center the more valuable it should be. If a player after a move ends up near the edge or even worse in the corner this move should be penalized. On the other hand the closer the move brings the player to the center of the board the better future prospects.
+
+\paragraph{Implementation}
+
+The function is implemented by defining a helper function \texttt{center{\_}value} function, which calculates the centeredness of the move using this function.
+
+$$centeredness = \frac{1}{1 + |\frac{board_h}{2} - move_y - 0.5|} + \frac{1}{1 + |\frac{board_w}{2} - move_x - 0.5|}$$
+
+where $board_h$ is the height of the board, $board_w$ is the width of the board, $move_y$ is the $y$ position of the move and $move_y$ is the $x$ position of the move.
+
+Each available move is mapped throught the \texttt{center{\_}value} function and the results are calculated for both the player and the opponent. The result is the difference between the player's and the opponent's values.
+
+\subsection{Edge bias heuristic function}
+
+\paragraph{Resoning}
+
+This heuristic function has a similar idea to the center bias heuristic function, but it only cares about the edges ob the board. The idea is that the edges are especially bad and should be avoided, therefore all moves leading to the edge of the board are not counted.
+
+\paragraph{Implementation}
+
+The function gets all the available moves for the player and the opponent and filters out the moves, which direct to the edge of the board. The result of the function is the difference between the number of filtered moves for the player and the opponent.
+
+\subsection{Agressive attack heuristic function}
+
+\paragraph{Resoning}
+
+This simple heuristic function calculates be difference between the moves available to the player and the moves available to the opponent, but the opponent's moves have a weight of 2. This will make the function very highly value the moves, which prevent the opponent from moving. This function was chosen, because of it's simplicity and speed.
+
+\paragraph{Implementation}
+
+The function gets all the available moves for the player and the opponent and returns the difference between the number of the player's moves and the number of the opponent's moves multiplied by 2.
+
+\subsection{Reinforcement learning of policy networks}
+
+In the next stage the policy network is improved using policy gradient reinforcement learning. The reinforcement learning policy network has identical structure to the supervised learning policy network. The weights are also initialized using the values from the previous step. Then games between random policy from previous iteration and current policy are played to prevent overfitting to the current policy and weights are updated.
+
+\subsection{Reinforcement learning of value networks}
+
+In the final stage the value function is estimated for position evaluation. Optimal value function under perfect play is not obtainable, therefore the value function is estimated for the strongest policy using reinforcement learning.
+
+\section{Results}
+
+In order to evaluate the results of the custom heuristic function the script \texttt{tournament.py} was run three times to control for random luck and the results were agregated.
+
+\subsection{Round 1}
+
+Table \ref{table:round1} shows the results of the first round of the tournament. AB Improved slightly outperformed the other functions, Center bias was the second while Edge bias and Aggressive attack tied for the third place.
+
+\begin{table}[h!]
+  \centering
+  \caption{Round 1}
+  \bigskip
+  \label{table:round1}
+  \begin{tabular}{l|c|c|c|c}
+    Opponent & AB Improved & Center bias & Edge bias & Aggressive attack \\
+    \hline
+    Random & 10 | 0 & 10 | 0 & 9 | 1 & 10 | 0 \\
+    MM Open & 7 | 3 & 6 | 4 & 6 | 4 & 6 | 4 \\
+    MM Center & 10 | 0 & 10 | 0 & 8 | 2 & 9 | 1 \\
+    MM Improved & 6 | 4 & 6 | 4 & 7 | 3 & 6 | 4 \\
+    AB Open & 6 | 4 & 4 | 6 & 4 | 6 & 5 | 5 \\
+    AB Center & 6 | 4 & 6 | 4 & 8 | 2 & 5 | 5 \\
+    AB Improved & 3 | 7 & 5 | 5 & 4 | 6 & 5 | 5 \\
+    \hline
+    Win Rate & 68.6\% & 67.1\% & 65.7\% & 65.7\%
+  \end{tabular}
+\end{table}
+
+
+\subsection{Round 2}
+
+Table \ref{table:round2} shows the results of the second round of the tournament. Edge bias which was the last in the previosu round clearly outperformed the competitors. Center bias was the second, Aggressive attack was the third and AB Improved, the winner of the previous round, was the last.
+
+\begin{table}[h!]
+  \centering
+  \caption{Round 2}
+  \bigskip
+  \label{table:round2}
+  \begin{tabular}{l|c|c|c|c}
+    Opponent & AB Improved & Center bias & Edge bias & Aggressive attack \\
+    \hline
+    Random & 10 | 0 & 10 | 0 & 9 | 1 & 9 | 1 \\
+    MM Open & 7 | 3 & 8 | 2 & 10 | 0 & 9 | 1 \\
+    MM Center & 10 | 0 & 10 | 0 & 9 | 1 & 9 | 1 \\
+    MM Improved & 7 | 3 & 7 | 3 & 8 | 2 & 5 | 5 \\
+    AB Open & 4 | 6 & 5 | 5 & 5 | 5 & 6 | 4 \\
+    AB Center & 5 | 5 & 5 | 5 & 5 | 5 & 7 | 3 \\
+    AB Improved & 4 | 6 & 4 | 6 & 6 | 4 & 3 | 7 \\
+    \hline
+    Win Rate & 67.1\% & 70.0\% & 74.3\% & 68.6\%
+  \end{tabular}
+\end{table}
+
+\subsection{Round 3}
+
+Table \ref{table:round3} shows the results of the third round of the tournament. Center bias tied Aggressive attack for the first place and AB Improved tied Edge bias for the third place.
+
+\begin{table}[h!]
+  \centering
+  \caption{Round 3}
+  \bigskip  
+  \label{table:round3}
+  \begin{tabular}{l|c|c|c|c}
+    Opponent & AB Improved & Center bias & Edge bias & Aggressive attack \\
+    \hline
+    Random & 8 | 2 & 10 | 0 & 10 | 0 & 10 | 0 \\
+    MM Open & 5 | 5 & 8 | 2 & 8 | 2 & 8 | 2 \\
+    MM Center & 8 | 2 & 7 | 3 & 8 | 2 & 10 | 0 \\
+    MM Improved & 6 | 4 & 7 | 3 & 7 | 3 & 7 | 3 \\
+    AB Open & 6 | 4 & 6 | 4 & 3 | 7 & 3 | 7 \\
+    AB Center & 6 | 4 & 5 | 5 & 5 | 5 & 6 | 4 \\
+    AB Improved & 5 | 5 & 5 | 5 & 3 | 7 & 4 | 6 \\
+    \hline
+    Win Rate & 62.9\% & 68.6\% & 62.9\% & 68.6\%
+  \end{tabular}
+\end{table}
+
+\subsection{Aggregation of the three rounds}
+
+Table \ref{table:total} shows the results of the aggregated results. Center bias performed the best, Edge bias tied Aggressive attack for the second place and the AB Improved was the last. Center bias strong performance in all rounds determined that it is the best heuristic function among of these analysed, nevertheless, the results were quite close and it is clear that many more rounds are needed to determine if it is truly better than the others with statistical significance.
+
+\begin{table}[H]
+  \centering
+  \caption{Total}
+  \bigskip  
+  \label{table:total}
+  \begin{tabular}{l|c|c|c|c}
+    Opponent & AB Improved & Center bias & Edge bias & Aggressive attack \\
+    \hline
+    Random & 28 | 2 & 30 | 0 & 28 | 2 & 29 | 1 \\
+    MM Open & 19 | 11 & 22 | 8 & 24 | 6 & 23 | 7 \\
+    MM Center & 28 | 2 & 27 | 3 & 25 | 5 & 28 | 2 \\
+    MM Improved & 19 | 11 & 20 | 10 & 22 | 8 & 18 | 12 \\
+    AB Open & 16 | 14 & 15 | 15 & 12 | 18 & 14 | 16 \\
+    AB Center & 17 | 13 & 16 | 14 & 18 | 12 & 18 | 12 \\
+    AB Improved & 12 | 18 & 14 | 16 & 13 | 17 & 12 | 18 \\
+    \hline
+    Win Rate & 66.2\% & 68.6\% & 67.6\% & 67.6\%
+  \end{tabular}
+\end{table}
+
+\section{Conclusion and recommendations}
+
+All three of the introduced custom heuristics functions overall performed slightly better than the bechmark AB Improved function. Center bias heuristic function performed consistently and strongly over all of the three rounds taking the first or the second place and becomming the overall winner of the anaysed functions. Based on the facts that the Center bias heuristics function 1. outperformed AB Improved benchmark function, 2. outperformed the other bias heuristics functions and 3. performed consistently well in all round, showing little variation in results, it is the recommended custom heuristics function to use.
+
+\end{document}
+  
