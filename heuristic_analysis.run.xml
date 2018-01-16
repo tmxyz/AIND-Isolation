@@ -78,8 +78,5 @@
     <requires type="dynamic">
       <file>heuristic_analysis.bcf</file>
     </requires>
-    <requires type="editable">
-      <file>dovydas.bib</file>
-    </requires>
   </external>
 </requests>

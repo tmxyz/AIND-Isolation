@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber heuristic_analysis"] 1511607259 "heuristic_analysis.bcf" "heuristic_analysis.bbl" "heuristic_analysis" 1511686985
-  "heuristic_analysis.bcf" 1511686959 94582 1f8eb38679a92db043a3a06409bab3dc ""
+["biber heuristic_analysis"] 1512306593 "heuristic_analysis.bcf" "heuristic_analysis.bbl" "heuristic_analysis" 1512306595
+  "heuristic_analysis.bcf" 1512306595 94503 22083b5558614391a1295f381cdb3ae0 ""
   (generated)
-  "heuristic_analysis.bbl"
   "heuristic_analysis.blg"
-["pdflatex"] 1511686958 "/Users/tmxyz/artificial-intelligence-nanodegree/AIND-Isolation/heuristic_analysis.tex" "heuristic_analysis.pdf" "heuristic_analysis" 1511686985
-  "/Users/tmxyz/artificial-intelligence-nanodegree/AIND-Isolation/heuristic_analysis.tex" 1511686985 8991 1aa931c319a34a55fd38a5d5c0e6d75d ""
+  "heuristic_analysis.bbl"
+["pdflatex"] 1512306594 "/Users/tmxyz/artificial-intelligence-nanodegree/AIND-Isolation/heuristic_analysis.tex" "heuristic_analysis.pdf" "heuristic_analysis" 1512306595
+  "/Users/tmxyz/artificial-intelligence-nanodegree/AIND-Isolation/heuristic_analysis.tex" 1512306591 8968 faf20aa1dfdd5f9ea89c2ff4e8edaa24 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1480098701 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -190,14 +190,14 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1511464853 4129593 00475bca948e46b96ebe3ea2b493f400 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "heuristic_analysis.aux" 1511686959 3817 1897bceef1cc14c8877d0b192b6dd9a8 ""
-  "heuristic_analysis.bbl" 1511607260 466 87c763802318ca007e475d2fb9c40fb5 "biber heuristic_analysis"
-  "heuristic_analysis.run.xml" 1511686959 2406 72f32eee544d30e6238fe883fd2ce479 ""
-  "heuristic_analysis.tex" 1511686985 8991 1aa931c319a34a55fd38a5d5c0e6d75d ""
+  "heuristic_analysis.aux" 1512306595 3817 1897bceef1cc14c8877d0b192b6dd9a8 ""
+  "heuristic_analysis.bbl" 1512306594 0 d41d8cd98f00b204e9800998ecf8427e "biber heuristic_analysis"
+  "heuristic_analysis.run.xml" 1512306595 2328 b12a052f17c5ee06d9658bf83b91b9d6 ""
+  "heuristic_analysis.tex" 1512306591 8968 faf20aa1dfdd5f9ea89c2ff4e8edaa24 ""
   (generated)
-  "heuristic_analysis.pdf"
-  "heuristic_analysis.log"
-  "heuristic_analysis.aux"
-  "heuristic_analysis.run.xml"
-  "heuristic_analysis.bcf"
   "heuristic_analysis.lot"
+  "heuristic_analysis.log"
+  "heuristic_analysis.pdf"
+  "heuristic_analysis.bcf"
+  "heuristic_analysis.run.xml"
+  "heuristic_analysis.aux"
